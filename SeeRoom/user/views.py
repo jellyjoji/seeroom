@@ -17,13 +17,12 @@ from django.http import Http404
 #         serializer = ReviewSerializer(review)
 #         return Response(serializer.data)
 
-class UsersView(APIView):
+class UserListAPIView(APIView):
     
     def get(self, request, format=None):
         user = User.objects.all()
         serializer = UserSerializer(user,many=True)
         return Response(serializer.data)
-
 
 # class ProfileAPIView(APIView):
 #     # def get_object(self, pk):# revies 객체 가져오기 
