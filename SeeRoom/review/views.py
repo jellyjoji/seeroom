@@ -1,3 +1,3 @@
 from django.shortcuts import render
 
-# Create your views here.
+# 올리기 연습용 주석
