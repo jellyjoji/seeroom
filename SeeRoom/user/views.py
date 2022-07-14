@@ -24,24 +24,6 @@ class UserListAPIView(APIView):
         serializer = UserSerializer(user,many=True)
         return Response(serializer.data)
 
-class UserAPIView(APIView):
-    
-    def get_object(self, pk):# revies 객체 가져오기 
-        try:
-            return User.objects.get(pk=pk)
-        except User.DoesNotExist:
-            raise Http404
-
-    def get(self, request,pk, *args, **kwargs):
-        user = User.objects.get(pk=pk)
-        data = {
-            'user' : user,
-        }
-
-        serializer = UserSerializer(instance=data)
-        return Response(serializer.data)
-    
-
 # class ProfileAPIView(APIView):
 #     # def get_object(self, pk):# revies 객체 가져오기 
 #     #     try:
