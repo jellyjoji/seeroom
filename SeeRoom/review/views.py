@@ -13,8 +13,3 @@ class reviewDetail(generics.RetrieveUpdateAPIView):
     serializer_class = reviewDetailSerialize
 
     
-
-<<<<<<< HEAD
-# 올리기 연습용 주석
-=======
->>>>>>> 5ed01a24f9d811862960e6f6460a79217363ce24
