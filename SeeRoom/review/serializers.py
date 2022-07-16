@@ -4,7 +4,7 @@ from .models import ReviewTest
 class reviewSerialize(serializers.ModelSerializer):
     class Meta:
         model = ReviewTest
-        fields = ('id', 'contents',)
+        fields = ('contents', 'deposit', 'monthlyRent', 'moldScore', 'bugScore', 'smellScore', 'internalNoiseScore', 'externalNoiseScore', 'floorNoiseScore', 'parkingScore', 'managementScore', 'constructionScore', 'elevator', 'femaleOnly', 'cctv', 'courierBox')
 
 class reviewDetailSerialize(serializers.ModelSerializer):
     class Meta:
