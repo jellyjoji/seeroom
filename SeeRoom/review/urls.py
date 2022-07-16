@@ -4,6 +4,6 @@ app_name = 'review'
 urlpatterns = [
     path('', reviewPostAndList.as_view()),
 
-    # like update
-    path('<int:pk>/', reviewDetail.as_view()),
+    path('<int:pk>/', buildingReviewListAndCreate.as_view()),
+    path('<int:pk>/<int:ppk>/', reviewDetail.as_view()),
 ]
