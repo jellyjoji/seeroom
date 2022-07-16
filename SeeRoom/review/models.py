@@ -3,6 +3,7 @@ from django.db import models
 class ReviewTest(models.Model):
     contents = models.TextField(null=True, default='')
     recommend = models.IntegerField(default=0)
+    
 # 건물 정보
 class Building(models.Model):
     name = models.CharField(max_length=200) # 이름
