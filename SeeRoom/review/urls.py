@@ -6,4 +6,5 @@ urlpatterns = [
 
     # like update
     path('<int:pk>/', reviewDetail.as_view()),
+
 ]

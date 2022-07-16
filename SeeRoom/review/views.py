@@ -9,12 +9,6 @@ class reviewPostAndList(generics.ListCreateAPIView):
     serializer_class = reviewSerialize
 
 class reviewDetail(generics.RetrieveUpdateAPIView):
-    queryset = ReviewTest.objects.all()
+    queryset = ReviewTest.objects.all() #pk값으로 불러오기 해야함
     serializer_class = reviewDetailSerialize
-
     
-
-<<<<<<< HEAD
-# 올리기 연습용 주석
-=======
->>>>>>> 5ed01a24f9d811862960e6f6460a79217363ce24
