@@ -1,9 +1,11 @@
 from django.shortcuts import render,get_object_or_404
 from rest_framework.views import APIView
 from accounts.models import User
-from user.serializers import UserSerializer
+from user.serializers import UserSerializer, ReviewSerializer
 from rest_framework.response import Response
 from django.http import Http404
+from rest_framework import generics
+from review.models import ReviewTest
 
 # class MyReviewView(APIView):
 #     def get_object(self, pk):# revies 객체 가져오기 
@@ -45,3 +47,6 @@ class UserListAPIView(APIView):
 #         return Response(serializer.data)
 
 
+class UserReviewListAPI(generics.ListAPIView):
+    queryset = ReviewTest.objects.all()
+    serializer_class = ReviewSerializer

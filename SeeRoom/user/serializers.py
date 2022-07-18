@@ -1,6 +1,8 @@
+from pyexpat import model
 from rest_framework import serializers
 
 from accounts.models import User
+from review.models import ReviewTest
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -9,8 +11,11 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['username', 'email']
 
-class ReviewSerializer():
-    pass
+class ReviewSerializer(serializers.ModelSerializer):
+    userID = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    class Meta:
+        model = ReviewTest
+        fields = "__all__"
 
 class LikeSerializer():
     pass
