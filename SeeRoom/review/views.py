@@ -20,3 +20,5 @@ class buildingReviewListAndCreate(generics.ListCreateAPIView):
     serializer_class = reviewSerialize
     def get_queryset(self):
         return ReviewTest.objects.filter(buildingId=self.kwargs['pk'])
+
+

@@ -44,10 +44,10 @@ class Building(models.Model):
 class ReviewTest(models.Model):
     contents = models.TextField(null=True,blank=True, default='')  # 주관식
     recommend = models.PositiveIntegerField(default=0)  # 추천수
-    buildingId = models.ForeignKey(Building, on_delete=models.CASCADE, null=True)   # 건물 id
-    userId = models.ForeignKey(User, on_delete=models.CASCADE) # 작성자 id
+    buildingId = models.ForeignKey(Building, blank=True, null=True, on_delete=models.CASCADE)   # 건물 id
+    userId = models.ForeignKey(User, on_delete=models.CASCADE,blank=True, null=True,default="") # 작성자 id
 
 #찜
 class Like(models.Model):
-    buildingId = models.ForeignKey(Building, on_delete=models.CASCADE)   # 건물 id
-    userId = models.ForeignKey(User, on_delete=models.CASCADE) # 작성자 id
+    buildingId = models.ForeignKey(Building, blank=True, null=True,on_delete=models.CASCADE)   # 건물 id
+    userId = models.ForeignKey(User,blank=True, null=True, on_delete=models.CASCADE) # 작성자 id
