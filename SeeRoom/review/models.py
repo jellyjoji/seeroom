@@ -37,6 +37,7 @@ class Building(models.Model):
     cctv = models.BooleanField  # cctv 유무
     courierBox = models.BooleanField    # 무인택배함 유무
     safeAvg = models.FloatField # 치안평균
+
     def __str__(self):
         return self.name
 
@@ -48,6 +49,6 @@ class ReviewTest(models.Model):
     userId = models.ForeignKey(User, on_delete=models.CASCADE,blank=True, null=True,default="") # 작성자 id
 
 #찜
-class Like(models.Model):
-    buildingId = models.ForeignKey(Building, blank=True, null=True,on_delete=models.CASCADE)   # 건물 id
-    userId = models.ForeignKey(User,blank=True, null=True, on_delete=models.CASCADE) # 작성자 id
+# class Like(models.Model):
+#     buildingId = models.ForeignKey(Building, blank=True, null=True,on_delete=models.CASCADE)   # 건물 id
+#     userId = models.ForeignKey(User,blank=True, null=True, on_delete=models.CASCADE) # 작성자 idp

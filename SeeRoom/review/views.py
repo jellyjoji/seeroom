@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import generics, status
+from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import reviewSerialize, reviewDetailSerialize
 from .models import ReviewTest
@@ -20,5 +21,4 @@ class buildingReviewListAndCreate(generics.ListCreateAPIView):
     serializer_class = reviewSerialize
     def get_queryset(self):
         return ReviewTest.objects.filter(buildingId=self.kwargs['pk'])
-
 

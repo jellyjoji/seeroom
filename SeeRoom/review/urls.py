@@ -6,7 +6,5 @@ urlpatterns = [
     path('', reviewPostAndList.as_view()),
     path('<int:pk>/', buildingReviewListAndCreate.as_view()),#건물 리뷰리스트
     path('<int:pk>/<int:ppk>/', reviewDetail.as_view()),#리뷰 디테일
-    #건물찜 
-    # path('<int:pk>/like', buildingLikeView.as_view() ),
 
 ]
