@@ -4,7 +4,7 @@ from accounts.models import User
 from user.serializers import UserSerializer, ReviewSerializer
 from rest_framework.response import Response
 from django.http import Http404
-from rest_framework import generics
+from rest_framework import generics, serializers
 from review.models import ReviewTest
 
 # class MyReviewView(APIView):
@@ -48,5 +48,7 @@ class UserListAPIView(APIView):
 
 
 class UserReviewListAPI(generics.ListAPIView):
-    queryset = ReviewTest.objects.all()
     serializer_class = ReviewSerializer
+    def get_queryset(self):
+        user = self.request.user.id
+        return ReviewTest.objects.filter(userId=user)

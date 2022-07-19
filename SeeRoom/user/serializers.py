@@ -12,10 +12,9 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['username', 'email']
 
 class ReviewSerializer(serializers.ModelSerializer):
-    userID = serializers.HiddenField(default=serializers.CurrentUserDefault())
     class Meta:
         model = ReviewTest
-        fields = "__all__"
+        fields = ('userId', 'contents', 'id', 'buildingId')
 
 class LikeSerializer():
     pass
