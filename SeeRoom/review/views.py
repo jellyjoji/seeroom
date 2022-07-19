@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework import generics, status
 from rest_framework.response import Response
-from rest_framework.generics import RetrieveAPIView
-from .serializers import reviewSerialize, reviewDetailSerialize
+from rest_framework.generics import GenericAPIView, RetrieveAPIView, ListAPIView
+from .serializers import BuildingListSerialize, BuildingSerializeDetail, reviewSerialize, reviewDetailSerialize
 from .models import Building, ReviewTest
 
 
@@ -23,25 +23,38 @@ class buildingReviewListAndCreate(generics.ListCreateAPIView):
         return ReviewTest.objects.filter(buildingId=self.kwargs['pk'])
 
 # 동환-----------------------
-# 빌딩 id에 맞는 빌딩 정보 및 리뷰 show
-class buildingDetail(RetrieveAPIView):
+
+# 필터 및 조건에 맞는 빌딩 리스트 show
+class BuildingListView(ListAPIView):
     queryset = Building.objects.all()
-    serializer_class = BuildingSerializerDetail
+    serializer_class = BuildingListSerialize
+
+
+# 빌딩 id에 맞는 빌딩 정보 및 리뷰 show
+class BuildingDetailView(RetrieveAPIView):
+    queryset = Building.objects.all()
+    serializer_class = BuildingSerializeDetail
 
     def retrieve(self, request, *args, **kwargs):
         instance = self.get_object()
-        cleanlinessEvaluation = instance.cleanlinessEvaluation_set.all()
-        noiseEvaluation = instance.noiseEvaluation_set.all()
-        locationEvaluation = instance.locationEvaluation_set.all()
-        safetyEvaluation = instance.safetyEvaluation_set.all()
+        reviewList = instance.reviewtest_set.all()
         data = {
             'building': instance,
-            'cleanlinessEvaluation': cleanlinessEvaluation,
-            'noiseEvaluation': noiseEvaluation,
-            'locationEvaluation': locationEvaluation,
-            'safetyEvaluation': safetyEvaluation,
+            'reviewList': reviewList
         }
         serializer = self.get_serializer(instance=data)
         return Response(serializer.data)
 
-# 필터 및 조건에 맞는 빌딩 리스트 show
+# 리뷰 좋아요
+class ReviewRecommend(GenericAPIView):
+    queryset = ReviewTest.objects.all()
+
+    # Patch method
+    def get(self, request, *args, **kwargs):
+        instance = self.get_object()
+        instance.recommend += 1
+        instance.save()
+            
+        return Response(instance.recommend)
+
+

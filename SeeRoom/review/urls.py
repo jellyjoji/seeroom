@@ -8,6 +8,7 @@ urlpatterns = [
     path('<int:pk>/<int:ppk>/', reviewDetail.as_view()),
 
     # 동환
-    # 빌딩 id에 맞는 빌딩 정보 및 리뷰 show
-    path('show/<int:pk>/', buildingDetail.as_view()),
+    path('building/', BuildingListView.as_view(), name='building-list'),    # 빌딜 리스트 페이지(필터, 조건 적용x)
+    path('building/<int:pk>/', BuildingDetailView.as_view(), name='building-detail'),   # 빌딩 세부 페이지
+    path('<int:pk>/recommend/', ReviewRecommend.as_view(), name='review-recommend')    # 리뷰 추천 기능
 ]

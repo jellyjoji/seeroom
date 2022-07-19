@@ -1,18 +1,34 @@
+from dataclasses import fields
 from rest_framework import serializers
-from .models import ReviewTest
+from .models import Building, ReviewTest
 
 class reviewSerialize(serializers.ModelSerializer):
     class Meta:
         model = ReviewTest
-        fields = ('contents', 'buildingId', 'deposit', 'monthlyRent', 'moldScore', 'bugScore', 'smellScore', 'internalNoiseScore', 'externalNoiseScore', 'floorNoiseScore', 'parkingScore', 'managementScore', 'constructionScore', 'elevator', 'femaleOnly', 'cctv', 'courierBox')
-
+        fields = "__all__"
+        
 class reviewDetailSerialize(serializers.ModelSerializer):
     class Meta:
         model = ReviewTest
         fields = "__all__"
 
 
-# 리뷰 리스트 
-# 평점 
-# 빌딩
-#class buildingSerializeDetail(serializers.ModelSerializer):
+#동환-----------------
+class BuildingListSerialize(serializers.ModelSerializer):
+    class Meta:
+        model = Building
+        fields = '__all__'
+
+class BuildingRetireveSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Building
+        fields = '__all__'
+
+class ReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ReviewTest
+        fields = ['contents', 'recommend']
+
+class BuildingSerializeDetail(serializers.Serializer):
+    building = BuildingRetireveSerializer()
+    reviewList = ReviewSerializer(many=True)
