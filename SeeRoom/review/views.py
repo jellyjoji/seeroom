@@ -1,11 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from rest_framework import generics, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.generics import GenericAPIView, RetrieveAPIView, ListAPIView
-from .serializers import BuildingListSerialize, BuildingSerializeDetail, reviewSerialize, reviewDetailSerialize
-from .models import Building, ReviewTest
-
+from .serializers import BuildingListSerialize, BuildingSerializeDetail, reviewSerialize, reviewDetailSerialize,likeSerialize
+from .models import Building, ReviewTest,Like
+from accounts.models import User
 
 class reviewPostAndList(generics.ListCreateAPIView):
     queryset = ReviewTest.objects.all()
@@ -31,9 +31,11 @@ class buildingReviewListAndCreate(generics.ListCreateAPIView):
 # 동환-----------------------
 
 # 필터 및 조건에 맞는 빌딩 리스트 show
-class BuildingListView(ListAPIView):
+class BuildingListView(generics.ListCreateAPIView):
     queryset = Building.objects.all()
     serializer_class = BuildingListSerialize
+    def perform_create(self, serializer):
+        serializer.save()
 
 
 # 빌딩 id에 맞는 빌딩 정보 및 리뷰 show
@@ -63,4 +65,4 @@ class ReviewRecommend(GenericAPIView):
             
         return Response(instance.recommend)
 
-
+#건물 좋아요

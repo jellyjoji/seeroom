@@ -1,11 +1,7 @@
 from django.db import models
 from accounts.models import User
-# Create your models here.
-# class ReviewTest(models.Model): 이부분 없애 주세요
-#     contents = models.TextField(null=True, default='')
-#     recommend = models.PositiveIntegerField(default=0)
 
-# 건물 정보
+# 건물 정보.
 class Building(models.Model):
     name = models.CharField(max_length=200) # 이름
     address = models.CharField(max_length=200)  # 주소
@@ -39,6 +35,7 @@ class Building(models.Model):
     courierBox = models.BooleanField(blank=True, null=True)    # 무인택배함 유무
     safeAvg = models.FloatField(blank=True, null=True) # 치안평균
     
+    # like_user = models.ManyToManyField(User,blank=True, null=True, related_name='like_buildings')
     def __str__(self):
         return self.name
 
@@ -49,8 +46,7 @@ class ReviewTest(models.Model):
     buildingId = models.ForeignKey(Building, blank=True, null=True, on_delete=models.CASCADE)   # 건물 id
     userId = models.IntegerField(blank=True, null=True,default=None) # 작성자 id
 
-
-#찜
-# class Like(models.Model):
-#     buildingId = models.ForeignKey(Building, blank=True, null=True,on_delete=models.CASCADE)   # 건물 id
-#     userId = models.ForeignKey(User,blank=True, null=True, on_delete=models.CASCADE) # 작성자 idp
+# 찜
+class Like(models.Model):
+    buildingId = models.ForeignKey(Building, blank=True, null=True,on_delete=models.CASCADE)   # 건물 id
+    userId = models.ForeignKey(User,blank=True, null=True, on_delete=models.CASCADE) # 작성자 idp

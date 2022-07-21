@@ -1,6 +1,6 @@
 from dataclasses import fields
 from rest_framework import serializers
-from .models import Building, ReviewTest
+from .models import Building, Like, ReviewTest
 
 class reviewSerialize(serializers.ModelSerializer):
     class Meta:
@@ -19,6 +19,11 @@ class BuildingListSerialize(serializers.ModelSerializer):
         model = Building
         fields = '__all__'
 
+class BuildingCreateSerialize(serializers.ModelSerializer):
+    class Meta:
+        model = Building
+        fields = ['name','address']
+
 class BuildingRetireveSerializer(serializers.ModelSerializer):
     class Meta:
         model = Building
@@ -32,3 +37,8 @@ class ReviewSerializer(serializers.ModelSerializer):
 class BuildingSerializeDetail(serializers.Serializer):
     building = BuildingRetireveSerializer()
     reviewList = ReviewSerializer(many=True)
+
+class likeSerialize(serializers.Serializer):
+    class Meta:
+        model = Like
+        fields = '__all__'

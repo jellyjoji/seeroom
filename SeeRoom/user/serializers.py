@@ -16,10 +16,8 @@ class ReviewSerializer(serializers.ModelSerializer):
         model = ReviewTest
         fields = ('userId', 'contents', 'id', 'buildingId')
 
-class LikeSerializer():
-    pass
 
-# class ProfileSerializer(serializers.Serializer):
-#     reviewList = ReviewSerializer(many=True)
-#     likeList = LikeSerializer(many=True)
-#     user = UserSerializer()
+class ProfileSerializer(serializers.Serializer):
+    reviewList = ReviewSerializer(many=True)
+    # likeList = LikeSerializer(many=True)
+    user = UserSerializer()
