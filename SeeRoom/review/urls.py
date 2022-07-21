@@ -13,4 +13,5 @@ urlpatterns = [
     path('<int:pk>/recommend/', ReviewRecommend.as_view(), name='review-recommend'),    # 리뷰 추천 기능
 
     # path('building/<int:pk>/like', BuildingLikeView.as_view(), name='building-like'),   # 빌딩 좋아요기능 
+
 ]
