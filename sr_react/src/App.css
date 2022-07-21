@@ -7,6 +7,20 @@
   pointer-events: none;
 }
 
+
+/* -------home----------- */
+body{
+  background: #ffffff!important;
+}
+.map{
+  width:50vw;
+  height:50vh;
+}
+
+
+.component-wrapper{
+  margin-top: 5%;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

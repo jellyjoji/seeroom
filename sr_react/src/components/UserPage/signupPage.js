@@ -1,6 +1,8 @@
 // import React, { Component } from "react";
 import axios from "axios";
 import { useState } from "react";
+import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../../App.css";
 
 const SignUp = () => {
   const [username, setUsername] = useState("");
@@ -84,6 +86,10 @@ const SignUp = () => {
   // };
 
   return (
+
+    <div className="auth-wrapper">
+    <div className="auth-inner">
+
     <form>
       <h3>Sign Up</h3>
       <br />
@@ -161,6 +167,9 @@ const SignUp = () => {
         Already registered <a href="/sign-in">sign in?</a>
       </p>
     </form>
+    </div>
+    </div>
+
   );
 };
 

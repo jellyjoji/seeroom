@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../../App.css";
 
 const Login = () => {
   return (
+    <div className="auth-wrapper">
+      <div className="auth-inner">
+
     <form>
       <h3>Sign In</h3>
 
@@ -46,6 +51,8 @@ const Login = () => {
         Forgot <a href="#">password?</a>
       </p>
     </form>
+      </div>
+    </div>
   );
 };
 

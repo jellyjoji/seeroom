@@ -5,6 +5,8 @@ from accounts.models import User
 class Building(models.Model):
     name = models.CharField(max_length=200) # 이름
     address = models.CharField(max_length=200)  # 주소
+    lat = models.FloatField(blank=True, null=True) #위도
+    lng = models.FloatField(blank=True, null=True) #경도
 
     deposit = models.IntegerField(blank=True, null=True)  # 보증금
     monthlyRent = models.IntegerField(blank=True, null=True)   # 월세
