@@ -5,7 +5,9 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import AddReview from "./components/ReviewPage/ReviewRegistrationPage";
 import Login from "./components/UserPage/loginPage";
 import SignUp from "./components/UserPage/signupPage";
+
 import Home from "./components/Home";
+
 import Create from "./components/Building/Create";
 import BuildList from "./components/Building/BuildList";
 import BdDtail from "./components/Building/BdDtail";
