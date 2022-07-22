@@ -2,7 +2,7 @@ import React from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
+import AddReview from "./components/ReviewPage/ReviewRegistrationPage";
 import Login from "./components/UserPage/loginPage";
 import SignUp from "./components/UserPage/signupPage";
 import Home from './components/Home';
@@ -54,6 +54,7 @@ function App() {
               <Route path="/sign-up" element={<SignUp />} />
               <Route path="/list" element={<BuildList />} />
               <Route path="/list/:ID" element={<BdDtail />} />
+              <Route path="/review" element={<AddReview />} />
             </Routes>
           </div>
     </Router>
