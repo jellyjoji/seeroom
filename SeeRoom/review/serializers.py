@@ -48,7 +48,7 @@ class tempBuilding(serializers.ModelSerializer):
     noiseAvg = serializers.HiddenField(default=0)
     locationsAvg = serializers.HiddenField(default=0)
     safeAvg = serializers.HiddenField(default=0)
-
+    
     class Meta:
         model = Building
         fields = (
