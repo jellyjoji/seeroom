@@ -7,6 +7,7 @@ import Login from "./components/UserPage/loginPage";
 import SignUp from "./components/UserPage/signupPage";
 import Home from './components/Home';
 import Create from "./components/Building/Create";
+import BuildList from './components/Building/BuildList';
 
 function App() {
   return (
@@ -34,6 +35,11 @@ function App() {
                     Sign up
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to={"/list"}>
+                    건물리스트
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -45,6 +51,7 @@ function App() {
               <Route path="/create" element={<Create/>}/>
               <Route path="/sign-in" element={<Login />} />
               <Route path="/sign-up" element={<SignUp />} />
+              <Route path="/list" element={<BuildList />} />
             </Routes>
           </div>
     </Router>

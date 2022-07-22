@@ -1,8 +1,10 @@
-import React ,{useRef, useEffect,useState} from 'react';
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
+import React ,{useRef, useEffect,useState} from 'react';
 import {Map, MarkerClusterer,MapMarker} from 'react-kakao-maps-sdk'
 import axios from "axios";
+import BuildList from './Building/BuildList';
+import { Route,Routes, Link,useNavigate  } from "react-router-dom";
 
 const {kakao} = window;
 
@@ -10,7 +12,8 @@ const Home = () => {
 
   const mapRef = useRef();
   const [building, buildingList] = useState([]);
-
+  const navigate = useNavigate();
+  
   useEffect(() => {
 
     axios
@@ -34,8 +37,9 @@ const Home = () => {
 
     // // 지도를 클릭된 클러스터의 마커의 위치를 기준으로 확대합니다
     // map.setLevel(level, {anchor: cluster.getCenter()});
-    console.log(cluster);
-
+    const markers =cluster.getMarkers();
+    console.log(markers[0]);
+    navigate(`/list`);
   };
 
   return (
@@ -55,6 +59,7 @@ const Home = () => {
         level={6} // 지도의 확대 레벨
         ref={mapRef}
       >
+        
         <MarkerClusterer
           averageCenter={true} // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
           minLevel={5} // 클러스터 할 최소 지도 레벨
@@ -66,7 +71,7 @@ const Home = () => {
         >
           {building.map((pos) => (
             <MapMarker
-              key={`${pos.lat}-${pos.lng}`}
+              key={pos.id} //{`${pos.lat}-${pos.lng}`}
               position={{
                 lat: pos.lat,
                 lng: pos.lng,
@@ -76,7 +81,12 @@ const Home = () => {
         </MarkerClusterer>
       </Map>
 
+      <Routes>
+        <Route path="/list" element={<BuildList />} />
+      </Routes>
+
     </div>
+
   );
 };
 
