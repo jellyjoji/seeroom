@@ -12,12 +12,7 @@ const StarRating = ({ id }) => {
           title="Awesome - 5 stars"
         ></label>
 
-        <input
-          type="radio"
-          id={`star4half${id}`}
-          name="rating"
-          value="4 and a half"
-        />
+        <input type="radio" id={`star4half${id}`} name="rating" value="4.5" />
         <label
           className="half"
           for={`star4half${id}`}
@@ -31,12 +26,7 @@ const StarRating = ({ id }) => {
           title="Pretty good - 4 stars"
         ></label>
 
-        <input
-          type="radio"
-          id={`star3half${id}`}
-          name="rating"
-          value="3 and a half"
-        />
+        <input type="radio" id={`star3half${id}`} name="rating" value="3.5" />
         <label
           className="half"
           for={`star3half${id}`}
@@ -50,12 +40,7 @@ const StarRating = ({ id }) => {
           title="Meh - 3 stars"
         ></label>
 
-        <input
-          type="radio"
-          id={`star2half${id}`}
-          name="rating"
-          value="2 and a half"
-        />
+        <input type="radio" id={`star2half${id}`} name="rating" value="2.5" />
         <label
           className="half"
           for={`star2half${id}`}
@@ -67,12 +52,7 @@ const StarRating = ({ id }) => {
           for={`star2${id}`}
           title="Kinda bad - 2 stars"
         ></label>
-        <input
-          type="radio"
-          id={`star1half${id}`}
-          name="rating"
-          value="1 and a half"
-        />
+        <input type="radio" id={`star1half${id}`} name="rating" value="1.5" />
         <label
           className="half"
           for={`star1half${id}`}
@@ -84,7 +64,7 @@ const StarRating = ({ id }) => {
           for={`star1${id}`}
           title="Sucks big time - 1 star"
         ></label>
-        <input type="radio" id={`starhalf${id}`} name="rating" value="half" />
+        <input type="radio" id={`starhalf${id}`} name="rating" value="0.5" />
         <label
           className="half"
           for={`starhalf${id}`}
