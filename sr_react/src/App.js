@@ -8,6 +8,7 @@ import SignUp from "./components/UserPage/signupPage";
 import Home from './components/Home';
 import Create from "./components/Building/Create";
 import BuildList from './components/Building/BuildList';
+import BdDtail from "./components/Building/BdDtail";
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
               <Route path="/sign-in" element={<Login />} />
               <Route path="/sign-up" element={<SignUp />} />
               <Route path="/list" element={<BuildList />} />
+              <Route path="/list/:ID" element={<BdDtail />} />
             </Routes>
           </div>
     </Router>

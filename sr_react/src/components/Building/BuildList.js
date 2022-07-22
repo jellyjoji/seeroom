@@ -3,7 +3,7 @@ import { BrowserRouter as Routes, Route, Link, useNavigate } from "react-router-
 import "../../App.css";
 import axios from "axios";
 import BdDtail from './BdDtail';
-
+import EachBd from "./EachBd";
 const BuildList = () => {
     const [building, buildingList] = useState([]);
     const navigate = useNavigate();
@@ -29,22 +29,12 @@ const BuildList = () => {
         <div className='component-wrapper'>
             <div className="list" >
             {building.map((e)=>(
-                // <Link className="nav-link" to={`/building/${e.id}`}>
-                <div onClick={onClickBd(e.id)}>
-
-                    <span>
-                        건물명 : {e.name} 
-                    </span>
-                    <span>
-                        월세 : {e.monthlyRent} 
-                    </span>
-                    <span>
-                        전체평점  {(e.cleanAvg+e.noiseAvg+e.locationsAvg+e.safeAvg)/4} 
-                    </span>
-                    {/* <span>
-                        필터적용 : {e.id} 
-                    </span> */}
-                </div>
+                <EachBd
+                    ID={e.id}
+                    name={e.name}
+                    monthlyRent={e.monthlyRent}
+                    avg={(e.cleanAvg+e.noiseAvg+e.locationsAvg+e.safeAvg)/4}
+                />
                 // </Link>
             ))}
         </div>
