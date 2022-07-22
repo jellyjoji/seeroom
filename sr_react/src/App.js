@@ -5,9 +5,11 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import AddReview from "./components/ReviewPage/ReviewRegistrationPage";
 import Login from "./components/UserPage/loginPage";
 import SignUp from "./components/UserPage/signupPage";
-import Home from './components/Home';
+
+import Home from "./components/Home";
+
 import Create from "./components/Building/Create";
-import BuildList from './components/Building/BuildList';
+import BuildList from "./components/Building/BuildList";
 import BdDtail from "./components/Building/BdDtail";
 
 function App() {
@@ -46,17 +48,16 @@ function App() {
           </div>
         </nav>
 
-        
-            <Routes>
-              <Route exact path="/" element={<Home />} />
-              <Route path="/create" element={<Create/>}/>
-              <Route path="/sign-in" element={<Login />} />
-              <Route path="/sign-up" element={<SignUp />} />
-              <Route path="/list" element={<BuildList />} />
-              <Route path="/list/:ID" element={<BdDtail />} />
-              <Route path="/review" element={<AddReview />} />
-            </Routes>
-          </div>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/create" element={<Create />} />
+          <Route path="/sign-in" element={<Login />} />
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/list" element={<BuildList />} />
+          <Route path="/list/:ID" element={<BdDtail />} />
+          <Route path="/review" element={<AddReview />} />
+        </Routes>
+      </div>
     </Router>
   );
 }

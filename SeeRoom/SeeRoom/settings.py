@@ -10,6 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+<<<<<<< HEAD
+import datetime
+=======
+>>>>>>> 13c06e4ac499ac5d87e617d7ffd9ecdf312abb56
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -40,15 +44,26 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+<<<<<<< HEAD
+    # 앱
+=======
     #앱
+>>>>>>> 13c06e4ac499ac5d87e617d7ffd9ecdf312abb56
     'accounts',
     'review',
     'user',
 
+<<<<<<< HEAD
+    # drf
+    'rest_framework',
+
+    # 로그인
+=======
     #drf
     'rest_framework',
 
     #로그인
+>>>>>>> 13c06e4ac499ac5d87e617d7ffd9ecdf312abb56
     'rest_framework.authtoken',
     'rest_auth',
     'django.contrib.sites',
@@ -57,12 +72,20 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     'allauth.socialaccount',
 
+<<<<<<< HEAD
+    # react cors
+=======
     #react cors
+>>>>>>> 13c06e4ac499ac5d87e617d7ffd9ecdf312abb56
     'corsheaders',
 ]
 
 MIDDLEWARE = [
+<<<<<<< HEAD
+    # react cors
+=======
     #react cors
+>>>>>>> 13c06e4ac499ac5d87e617d7ffd9ecdf312abb56
     'corsheaders.middleware.CorsMiddleware',
 
     'django.middleware.security.SecurityMiddleware',
@@ -74,7 +97,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+<<<<<<< HEAD
+# react cors
+=======
 #react cors
+>>>>>>> 13c06e4ac499ac5d87e617d7ffd9ecdf312abb56
 CORS_ORIGIN_WHITELIST = ('http://127.0.0.1:3000', 'http://localhost:3000')
 CORS_ALLOW_CREDENTIALS = True
 
@@ -151,10 +178,16 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+<<<<<<< HEAD
+# AbstractUser
+AUTH_USER_MODEL = 'accounts.User'
+
+=======
 # AbstractUser 
 AUTH_USER_MODEL = 'accounts.User'
 
 import datetime
+>>>>>>> 13c06e4ac499ac5d87e617d7ffd9ecdf312abb56
 
 REST_FRAMEWORK = {
     'DEFAULT_PARSER_CLASSES': [
