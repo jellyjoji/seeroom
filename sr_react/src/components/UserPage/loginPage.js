@@ -7,7 +7,10 @@ export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { replace } = useNavigate();
-
+  const navigate = useNavigate();
+  const goHome = () => {
+      navigate(`/`);
+    };
   const onChangeUsername = (e) => {
     setUsername(e.target.value);
   };
@@ -51,6 +54,8 @@ export const Login = () => {
   }, []);
 
   return (
+    <div className="auth-wrapper">
+      <div className="auth-inner">
     <form>
       <h3>Sign In</h3>
       <div className="mb-3">
@@ -109,7 +114,7 @@ export const Login = () => {
       </div>
 
       <div className="d-grid">
-        <button type="submit" className="btn btn-primary" onClick={checkUser}>
+        <button type="submit" className="btn btn-primary" onClick={goHome}>
           Submit
         </button>
       </div>
@@ -117,6 +122,8 @@ export const Login = () => {
         Forgot <a href="#">password?</a>
       </p>
     </form>
+    </div>
+    </div>
   );
 };
 

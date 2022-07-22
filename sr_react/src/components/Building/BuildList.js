@@ -37,7 +37,39 @@ const BuildList = () => {
                 />
                 // </Link>
             ))}
-        </div>
+            </div>
+
+            <div className='filter'>
+                <strong className='contentTitle'>필터</strong>
+                <nav className='filter_content'>
+                    <h3 className='filterTitle'>청결</h3>
+                    <ul className='filter_ul'>
+                        <li className='filter_li'>곰팡이</li>
+                        <li className='filter_li'>벌레</li>
+                        <li className='filter_li'>냄새</li>
+                    </ul>
+                </nav>
+                <nav clssName='filter_content'>
+                    <h3 className='filterTitle'>청결</h3>
+                    <ul className='filter_ul'>
+                        <li className='filter_li'>곰팡이</li>
+                        <li className='filter_li'>벌레</li>
+                        <li className='filter_li'>냄새</li>
+                    </ul>
+                </nav>                
+                <nav clssName='filter_content'>
+                    <h3 className='filterTitle'>청결</h3>
+                    <ul className='filter_ul'>
+                        <li className='filter_li'>곰팡이</li>
+                        <li className='filter_li'>벌레</li>
+                        <li className='filter_li'>냄새</li>
+                    </ul>
+                </nav>
+                <button className='filterBtn'>
+                    적용하기
+                </button>
+            </div>
+        
             {/* <Routes>
                 <Route path="/list" element={<BdDtail />} />
             </Routes> */}
