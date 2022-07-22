@@ -46,8 +46,8 @@ const Create = () => {
           lng: 126.9786567,
         }}
         style={{
-          width: "50%",
-          height: "350px",
+          width: "100vw",
+          height: "100vh",
         }}
         level={3}
         onCreate={setMap}

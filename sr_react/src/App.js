@@ -17,13 +17,18 @@ function App() {
         <nav className="navbar navbar-expand-lg navbar-light fixed-top">
           <div className="container">
             <Link className="navbar-brand" to={"/"}>
-              seeroom
+              {/* this is logo  */}
             </Link>
             <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
                   <Link className="nav-link" to={"/create"}>
                     건물등록
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to={"/list"}>
+                    건물리스트
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -36,11 +41,7 @@ function App() {
                     Sign up
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to={"/list"}>
-                    건물리스트
-                  </Link>
-                </li>
+                
               </ul>
             </div>
           </div>

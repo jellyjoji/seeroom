@@ -131,9 +131,12 @@ html,
   text-align: left;
 }
 .filter_ul{
+  font-size: 16px;
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
+  padding-left: 0;
 }
 .filter_li{
   border: 1px solid #dbdbdb;
@@ -141,6 +144,17 @@ html,
   border-radius: 50px;
   cursor:pointer;
 }
+.filter_li:visited{
+  background-color: #5C45E4;
+  border : 1px solid #5C45E4;
+  color: white;
+}
+.filter_content{
+  border: 1px solid #5C45E4;
+  color: white;
+  cursor: pointer;
+}
+
 li:hover{
   background-color: #5C45E4;
   border : 1px solid #5C45E4;
