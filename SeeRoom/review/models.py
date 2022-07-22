@@ -16,26 +16,26 @@ class Building(models.Model):
     moldScore = models.FloatField(blank=True, null=True)   # 곰팡이 점수
     bugScore = models.FloatField(blank=True, null=True)    # 벌레 점수
     smellScore = models.FloatField(blank=True, null=True)  # 냄새 점수
-    cleanAvg = models.FloatField(blank=True, null=True) # 청결 평균
+    cleanAvg = models.FloatField(blank=True, null=True, default=0) # 청결 평균
 
     #소음
     internalNoiseScore = models.FloatField(blank=True, null=True)  # 내부소음 점수
     externalNoiseScore = models.FloatField(blank=True, null=True)  # 외부소음 점수
     floorNoiseScore = models.FloatField(blank=True, null=True)  # 층간소음 점수
-    noiseAvg= models.FloatField(blank=True, null=True) #소음 평균
+    noiseAvg= models.FloatField(blank=True, null=True, default=0) #소음 평균
 
     # 위치 
     parkingScore = models.FloatField(blank=True, null=True)    # 주차 점수
     managementScore = models.FloatField(blank=True, null=True) # 관리 점수
     constructionScore = models.FloatField(blank=True, null=True)   # 구축/신축 점수
     elevator = models.BooleanField(blank=True, null=True)  # 엘리베이터 유무 
-    locationsAvg = models.FloatField(blank=True, null=True) # 위치평균
+    locationsAvg = models.FloatField(blank=True, null=True, default=0) # 위치평균
 
     # 치안
     femaleOnly = models.BooleanField(blank=True, null=True)    # 여성전용 여부
     cctv = models.BooleanField(blank=True, null=True)  # cctv 유무
     courierBox = models.BooleanField(blank=True, null=True)    # 무인택배함 유무
-    safeAvg = models.FloatField(blank=True, null=True) # 치안평균
+    safeAvg = models.FloatField(blank=True, null=True, default=0) # 치안평균
     
     # like_user = models.ManyToManyField(User,blank=True, null=True, related_name='like_buildings')
     def __str__(self):
