@@ -1,6 +1,7 @@
 // import React, { Component } from "react";
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../../App.css";
 
@@ -10,7 +11,10 @@ const SignUp = () => {
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
   const [errors, setErrors] = useState(false);
-
+  const navigate = useNavigate();
+  const goLogin = () => {
+      navigate(`/sign-in`);
+    };
   const onChangeUsername = (e) => {
     setUsername(e.target.value);
   };
@@ -154,9 +158,10 @@ const SignUp = () => {
             <button
               type="submit"
               className="btn btn-primary"
-              onClick={() => {
-                register();
-              }}
+              // onClick={() => {
+              //   register();
+              // }}
+              onClick={goLogin}
             >
               Sign Up
             </button>
