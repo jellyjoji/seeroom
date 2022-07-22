@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import "./StarRating.css";
 import StarRating from "./StarRating";
 import CheckBox from "./CheckBox";
@@ -13,6 +14,25 @@ class AddReview extends Component {
       reviewData: 0,
       ratingValue: "",
       mapValue: [1, 2, 3, 4, 5],
+    };
+    this.building = {
+      moldScore: "",
+      bugScore: "",
+      smellScore: "",
+      internalNoiseScore: "",
+      externalNoiseScore: "",
+      floorNoiseScore: "",
+      parkingScore: "",
+      managementScore: "",
+      constructionScore: "",
+      elevator: "",
+      femaleOnly: "",
+      cctv: "",
+      courierBox: "",
+      contents: "",
+      recommend: "",
+      userId: "",
+      buildingId: "",
     };
   }
 
@@ -32,6 +52,25 @@ class AddReview extends Component {
     const { ratingValue, reviewText, mapValue } = this.state;
     const { reviewData, ratio } = this.props;
     const isValid = 50 <= reviewText.length;
+    const {
+      moldScore,
+      bugScore,
+      smellScore,
+      internalNoiseScore,
+      externalNoiseScore,
+      floorNoiseScore,
+      parkingScore,
+      managementScore,
+      constructionScore,
+      elevator,
+      femaleOnly,
+      cctv,
+      courierBox,
+      contents,
+      recommend,
+      userId,
+      buildingId,
+    } = this.building;
 
     return (
       <div className="addReview">
@@ -144,9 +183,9 @@ class AddReview extends Component {
           <button
             disabled={isValid ? false : true}
             className={isValid ? "activeBtn" : ""}
-            onClick={this.uploadReviewData}
+            /*onClick={this.uploadReviewData}*/
           >
-            등록
+            <Link to="/">등록</Link>
           </button>
         </div>
       </div>

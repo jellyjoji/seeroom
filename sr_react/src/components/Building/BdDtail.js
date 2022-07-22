@@ -1,7 +1,9 @@
-import React from 'react';
+import React from "react";
 import "../../App.css";
+import axios from "axios";
 
 const BdDtail = () => {
+
     //const Params = useParams();
     // useEffect(() => {
     //     axios.get(`http://127.0.0.1:8000/reviews/building/${Params.BdID}`).then((response) => {
