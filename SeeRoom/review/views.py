@@ -82,9 +82,11 @@ class makeReviewAtBuilding(APIView):
         review_data_serialize = reviewSerialize(data=review_data)
         if review_data_serialize.is_valid():
             review_data_serialize.save()
+            
         buildStar = Building.objects.get(id=self.kwargs['pk'])
         rreeview = ReviewTest.objects.filter(buildingId=self.kwargs['pk'])
         reviewCount = len(rreeview)
+        # return Response(request.data)
         build_data = {
             'moldScore': (float(request.data['building.moldScore'])+buildStar.moldScore*(reviewCount-1))/reviewCount, 
             'bugScore': (float(request.data['building.bugScore'])+buildStar.bugScore*(reviewCount-1))/reviewCount, 
@@ -101,10 +103,10 @@ class makeReviewAtBuilding(APIView):
             'constructionScore': (float(request.data['building.constructionScore'])+buildStar.constructionScore*(reviewCount-1))/reviewCount, 
             'locationsAvg': buildStar.locationsAvg,
 
-            'elevator': request.data['building.elevator'], 
-            'femaleOnly': request.data['building.femaleOnly'], 
-            'cctv': request.data['building.cctv'], 
-            'courierBox': request.data['building.courierBox'], 
+            'elevator': "false" if 'building.elevator' not in request.data else request.data['building.elevator'], 
+            'femaleOnly': "false" if 'building.femaleOnly' not in request.data else request.data['building.femaleOnly'], 
+            'cctv': "false" if 'building.cctv' not in request.data else request.data['building.cctv'], 
+            'courierBox': "false" if 'building.courierBox' not in request.data else request.data['building.courierBox'], 
             'safeAvg': buildStar.safeAvg,
             }
 
