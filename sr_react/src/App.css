@@ -53,3 +53,25 @@ body{
     transform: rotate(360deg);
   }
 }
+
+/* this is edited in EachBd---- */
+.listCards{
+  background-color: #ffffff;
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  gap : 0.5rem;
+  margin-bottom: 2rem;
+  margin-left: 80px;
+  padding: 2rem;
+  width: 640px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
+
+  /* border: 1px solid #cccccc; */
+}
+.cardTitle{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+/* this is filter */

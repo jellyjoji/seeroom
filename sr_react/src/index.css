@@ -19,7 +19,7 @@ h5,
 h6,
 label,
 span {
-  font-weight: 500;
+  font-weight: 00;
   font-family: "Fira Sans", sans-serif;
 }
 
@@ -30,11 +30,13 @@ html,
 .auth-wrapper {
   width: 100%;
   height: 100%;
+  /* margin-top: 1rem; */
+  background-color: #f9f9f9;
 }
 
 .navbar-light {
   background-color: #ffffff;
-  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.10);
 }
 
 .auth-wrapper {
@@ -55,7 +57,7 @@ html,
 }
 
 .auth-wrapper .form-control:focus {
-  border-color: #167bff;
+  border-color: #5C45E4;
   box-shadow: none;
 }
 
@@ -80,6 +82,67 @@ html,
 }
 
 .forgot-password a {
-  color: #167bff;
+  color: #5C45E4;
 }
-
+/* this is EachBd filter  */
+/* .filter{
+  right : 0;
+  background-image: url(./filter_hover.png);
+  width: 24px;
+  height: 24px;
+}
+.filter:hover {
+  background-image: url(./filter.png);
+  cursor: pointer;
+} */
+.filter{
+  display: flex;
+  flex-direction: column;
+  gap : 2em;
+  padding: 2rem;
+  align-items: start;
+  width: 360px;
+  height: 100%;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
+}
+.contentTitle{
+  color: #5C45E4;
+}
+.component-wrapper{
+  display: flex;
+  padding: 2rem;
+  justify-content: center;
+  width: 100%;
+  gap : 2rem;
+}
+.filterBtn{
+  border-radius: 12px;
+  height: 48px;
+  width: 300px;
+  border: none;
+  color: white;
+  background-color: #5C45E4;
+}
+.filterTitle{
+  font-size: 1rem;
+  font-weight: 900;
+  text-align: left;
+}
+.filter_ul{
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+.filter_li{
+  border: 1px solid #dbdbdb;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  cursor:pointer;
+}
+li:hover{
+  background-color: #5C45E4;
+  border : 1px solid #5C45E4;
+  color: white;
+}
