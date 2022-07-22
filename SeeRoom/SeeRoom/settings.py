@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import datetime
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -40,15 +41,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    #앱
+    # 앱
     'accounts',
     'review',
     'user',
 
-    #drf
+    # drf
     'rest_framework',
 
-    #로그인
+    # 로그인
     'rest_framework.authtoken',
     'rest_auth',
     'django.contrib.sites',
@@ -57,12 +58,12 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     'allauth.socialaccount',
 
-    #react cors
+    # react cors
     'corsheaders',
 ]
 
 MIDDLEWARE = [
-    #react cors
+    # react cors
     'corsheaders.middleware.CorsMiddleware',
 
     'django.middleware.security.SecurityMiddleware',
@@ -74,7 +75,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-#react cors
+# react cors
 CORS_ORIGIN_WHITELIST = ('http://127.0.0.1:3000', 'http://localhost:3000')
 CORS_ALLOW_CREDENTIALS = True
 
@@ -151,10 +152,9 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# AbstractUser 
+# AbstractUser
 AUTH_USER_MODEL = 'accounts.User'
 
-import datetime
 
 REST_FRAMEWORK = {
     'DEFAULT_PARSER_CLASSES': [

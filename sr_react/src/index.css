@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800");
+/*@import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800");
 
 * {
   box-sizing: border-box;
@@ -54,6 +54,11 @@ html,
   transition: all 0.3s;
 }
 
+.review-registration{
+  margin:100cm
+
+}
+
 .auth-wrapper .form-control:focus {
   border-color: #167bff;
   box-shadow: none;
@@ -82,4 +87,4 @@ html,
 .forgot-password a {
   color: #167bff;
 }
-
+*/
