@@ -1,6 +1,7 @@
 // import React, { Component } from "react";
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../../App.css";
 
@@ -10,7 +11,10 @@ const SignUp = () => {
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
   const [errors, setErrors] = useState(false);
-
+  const navigate = useNavigate();
+  const goLogin = () => {
+      navigate(`/sign-in`);
+    };
   const onChangeUsername = (e) => {
     setUsername(e.target.value);
   };
@@ -86,90 +90,88 @@ const SignUp = () => {
   // };
 
   return (
-
     <div className="auth-wrapper">
-    <div className="auth-inner">
+      <div className="auth-inner">
+        <form>
+          <h3>Sign Up</h3>
+          <br />
+          {/* {errors === true && <h2>Cannot signup with provided credentials</h2>} */}
+          <div className="mb-3">
+            <label>Name</label>
+            <input
+              type="string"
+              className="form-control"
+              placeholder="UserName"
+              required
+              //readOnly="false" //readonly는 input태그를 사용자가 입력 및 수정 못하게 비활성화
+              label="Username"
+              minLength={1}
+              maxLength={150}
+              value={username}
+              onChange={onChangeUsername}
+            />
+          </div>
 
-    <form>
-      <h3>Sign Up</h3>
-      <br />
-      {/* {errors === true && <h2>Cannot signup with provided credentials</h2>} */}
-      <div className="mb-3">
-        <label>Name</label>
-        <input
-          type="string"
-          className="form-control"
-          placeholder="UserName"
-          required
-          //readOnly="false" //readonly는 input태그를 사용자가 입력 및 수정 못하게 비활성화
-          label="Username"
-          minLength={1}
-          maxLength={150}
-          value={username}
-          onChange={onChangeUsername}
-        />
-      </div>
+          <div className="mb-3">
+            <label>Email address</label>
+            <input
+              type="email"
+              className="form-control"
+              placeholder="Enter email"
+              required
+              //readOnly="false"
+              label="Email"
+              value={email}
+              onChange={onChangeEmail}
+            />
+          </div>
 
-      <div className="mb-3">
-        <label>Email address</label>
-        <input
-          type="email"
-          className="form-control"
-          placeholder="Enter email"
-          required
-          //readOnly="false"
-          label="Email"
-          value={email}
-          onChange={onChangeEmail}
-        />
-      </div>
+          <div className="mb-3">
+            <label>Password1</label>
+            <input
+              type="string"
+              className="form-control"
+              placeholder="Enter password"
+              required
+              //readOnly="false"
+              label="Password1"
+              value={password1}
+              onChange={onChangePassword1}
+            />
+          </div>
 
-      <div className="mb-3">
-        <label>Password1</label>
-        <input
-          type="string"
-          className="form-control"
-          placeholder="Enter password"
-          required
-          //readOnly="false"
-          label="Password1"
-          value={password1}
-          onChange={onChangePassword1}
-        />
-      </div>
+          <div className="mb-3">
+            <label>Password2</label>
+            <input
+              type="string"
+              className="form-control"
+              placeholder="Enter password"
+              required
+              //readOnly="false"
+              label="Password1"
+              value={password2}
+              onChange={onChangePassword2}
+            />
+          </div>
 
-      <div className="mb-3">
-        <label>Password2</label>
-        <input
-          type="string"
-          className="form-control"
-          placeholder="Enter password"
-          required
-          //readOnly="false"
-          label="Password1"
-          value={password2}
-          onChange={onChangePassword2}
-        />
+          <div className="d-grid">
+            <button
+              type="submit"
+              className="btn btn-primary"
+              // onClick={() => {
+              //   register();
+              // }}
+              onClick={goLogin}
+            >
+              Sign Up
+            </button>
+          </div>
+          <p className="forgot-password text-right">
+            Already registered <a href="/sign-in">sign in?</a>
+          </p>
+        </form>
       </div>
-
-      <div className="d-grid">
-        <button
-          type="submit"
-          className="btn btn-primary"
-          onClick={() => {
-            register();
-          }}
-        >
-          Sign Up
-        </button>
-      </div>
-      <p className="forgot-password text-right">
-        Already registered <a href="/sign-in">sign in?</a>
-      </p>
-    </form>
     </div>
-    </div>
-
   );
 };
 
